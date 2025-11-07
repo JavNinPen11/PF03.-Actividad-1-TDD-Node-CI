@@ -3,16 +3,17 @@ function fibonacci(n){
     throw new RangeError('solo números enteros ≥ 0');
   }
 
-  if (n === 0) return 0;
-  if (n === 1) return 1;
+  if (n <= 1) return n;
 
-  let a = 0, b = 1;
+  let prev = 0;
+  let curr = 1;
+
   for (let i = 2; i <= n; i++) {
-    const next = a + b;
-    a = b;
-    b = next;
+    const next = prev + curr;
+    prev = curr;
+    curr = next;
   }
-  return b;
+  return curr;
 }
 
 
